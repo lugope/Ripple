@@ -11,15 +11,17 @@ import SwiftUI
 enum StandartColor: CaseIterable {
     case backgroundBlue
     case buttonWhite
+    case circleButtonContent
     
     var color: Color {
         switch self {
         case .backgroundBlue:
-            return Color(hex: "0000ff")
+            return Color(hex: "387FB7")
         case .buttonWhite:
             return Color.white
+        case .circleButtonContent:
+            return Color(hex: "01579B")
         }
-    
     }
 }
 

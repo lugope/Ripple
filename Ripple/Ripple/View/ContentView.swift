@@ -18,6 +18,11 @@ struct ContentView: View {
                 
                 VStack{
                     ZStack{
+                        Circle()
+                            .strokeBorder(Color.white, lineWidth: 5)
+                            .frame(width: 220, height: 220, alignment: .center)
+                            .foregroundColor(.clear)
+                        
                         NavigationLink(
                             destination: RhythmView(rhythm: RhythymModel(color: Color.red)),
                             tag: 1,
@@ -25,18 +30,13 @@ struct ContentView: View {
                         ) {
                             Button(action: {self.selection = 1}) {
                                 Text("START")
-                                    .foregroundColor(Color.blue)
+                                    .foregroundColor(StandartColor.circleButtonContent.color)
                                     .background(Color.white)
                                     .clipShape(Circle())
                                     .frame(width: 200, height: 200, alignment: .center)
                                     .font(.system(size: 40).bold())
                             }
                         }
-                        
-                        Circle()
-                            .strokeBorder(Color.white, lineWidth: 5)
-                            .frame(width: 220, height: 220, alignment: .center)
-                            .foregroundColor(.clear)
                     }
                     
                 }
