@@ -20,11 +20,11 @@ struct ContentView: View {
                     ZStack{
                         Circle()
                             .strokeBorder(Color.white, lineWidth: 5)
-                            .frame(width: 220, height: 220, alignment: .center)
+                            .frame(width: 200, height: 200, alignment: .center)
                             .foregroundColor(.clear)
                         
                         NavigationLink(
-                            destination: RhythmView(rhythm: RhythymModel(color: Color.red)),
+                            destination: RhythmView(),
                             tag: 1,
                             selection: $selection
                         ) {
