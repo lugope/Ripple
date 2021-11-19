@@ -13,25 +13,32 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack{
-                Color.blue
-                    .opacity(0.5)
+                StandartColor.backgroundBlue.color
                     .ignoresSafeArea()
                 
                 VStack{
-                    NavigationLink(
-                        destination: RhythmView(rhythm: RhythymModel(color: Color.red)),
-                        tag: 1,
-                        selection: $selection
-                    ) {
-                        Button(action: {self.selection = 1}) {
-                            Text("START")
-                                .frame(width: 200, height: 200, alignment: .center)
-                                .font(.system(size: 40).bold())
-
+                    ZStack{
+                        NavigationLink(
+                            destination: RhythmView(rhythm: RhythymModel(color: Color.red)),
+                            tag: 1,
+                            selection: $selection
+                        ) {
+                            Button(action: {self.selection = 1}) {
+                                Text("START")
+                                    .foregroundColor(Color.blue)
+                                    .background(Color.white)
+                                    .clipShape(Circle())
+                                    .frame(width: 200, height: 200, alignment: .center)
+                                    .font(.system(size: 40).bold())
+                            }
                         }
-                        .buttonStyle(CicleButtonStyle())
                         
+                        Circle()
+                            .strokeBorder(Color.white, lineWidth: 5)
+                            .frame(width: 220, height: 220, alignment: .center)
+                            .foregroundColor(.clear)
                     }
+                    
                 }
             }
         }
