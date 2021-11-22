@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+
+struct Cycle: Identifiable {
+    var id = UUID()
+    var inhale:Int
+    var midPause:Int
+    var exhale:Int
+    var endPause:Int
+    var repetitions:Int
+}
