@@ -6,68 +6,118 @@
 //
 
 import SwiftUI
+import Foundation
 
-struct Trail: Identifiable {
-    var id = UUID()
-    var name: String
-    var location: String
-    var distance: Double
+struct CycleTest: Identifiable {
+    
+    init(){
+        id = UUID()
+        name = "Cycle n°" + id.uuidString
+    }
+    
+    var id:UUID
+    var name:String
+}
+
+let cycles:[CycleTest] = [
+    CycleTest(),
+    CycleTest(),
+    CycleTest(),
+    CycleTest(),
+    CycleTest(),
+    CycleTest()
+]
+
+struct ClearButton: ViewModifier {
+    @Binding var text: String
+
+    public init(text: Binding<String>) {
+        self._text = text
+    }
+
+    public func body(content: Content) -> some View {
+        HStack {
+            content
+            Spacer()
+            // onTapGesture is better than a Button here when adding to a form
+            Image(systemName: "multiply.circle.fill")
+                .foregroundColor(.secondary)
+                .opacity(text == "" ? 0 : 1)
+                .onTapGesture { self.text = "" }
+        }
+    }
+}
+
+private struct RowContent: View {
+    var cycle: CycleTest
+    
+    var body: some View {
+        
+        NavigationLink(destination: ExcerciseView()) {
+            Text(cycle.name)
+        }
+            .listRowBackground(Color(red: 251/255, green: 251/255, blue: 253/255, opacity: 100))
+            .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
+    }
+    
 }
 
 struct ExcerciseView: View {
     
-    let hikingTrails = [
-        Trail(name: "Stanford Dish", location: "Palo Alto", distance: 3.9),
-        Trail(name: "Edgewood", location: "Redwood City", distance: 3.2),
-        Trail(name: "Mission Peak", location: "Fremont", distance: 7.1),
-        Trail(name: "Big Basin", location: "Boulder Creek", distance: 4.3),
-        Trail(name: "Alum Rock", location: "Milpitas", distance: 5.7),
-    ]
+    @State var excerciseName:String = ""
     
-    struct TrailRow: View {
-        var trail: Trail
+    init() {
         
-        var body: some View {
-            NavigationLink(destination: ExcercisesListView(), label: {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(trail.name)
-                        Text(trail.location).font(.subheadline).foregroundColor(.gray)
-                    }
-                    Spacer()
-                    Text(String(format: "%.1f miles", trail.distance))
-                }
-            })
-
-        }
+        coloredNavAppearance.configureWithOpaqueBackground()
+        coloredNavAppearance.backgroundColor = UIColor(Color(red: 236/255, green: 238/255, blue: 244/255, opacity: 100))
+        coloredNavAppearance.titleTextAttributes = [.foregroundColor: UIColor(Color(red: 94/255, green: 168/255, blue: 251/255, opacity: 100))]
+        coloredNavAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        UINavigationBar.appearance().standardAppearance = coloredNavAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
+        
+        UITableView.appearance().backgroundColor = UIColor(Color(red: 236/255, green: 238/255, blue: 244/255, opacity: 100))
+        
     }
     
     var body: some View {
-        List {
-            Section(header: ListHeader(), footer: ListFooter()) {
-                ForEach(hikingTrails) { trail in
-                    TrailRow(trail: trail)
-                }
+    
+        NavigationView{
+            
+            VStack(alignment: .leading, spacing: 0){
+                
+                List{
+                    Section(header: Text("Excercise Name")){
+                        TextField("Excercise Name", text: $excerciseName)
+                            .modifier(ClearButton(text: $excerciseName))
+                        
+                    }
+                }.listStyle(InsetGroupedListStyle())
+                    .frame(height: 100)
+                
+                List{
+                    Section(
+                        header:
+                            HStack{
+                                Text("Cycles")
+                                Spacer()
+                                Button(action: {print("Ciao")}){
+                                    Image(systemName: "plus")
+                                }
+                            }
+                    ){
+                        ForEach(cycles, id: \.id) { c in
+                            NavigationLink(c.name, destination: ExcercisesListView())
+                        }
+                    }
+                }.listStyle(InsetGroupedListStyle())
+                
             }
+            
         }
     }
 }
-
-struct ListHeader: View {
-    var body: some View {
-        HStack {
-            Image(systemName: "map")
-            Text("Hiking Trails in Silicon Valley")
-        }
-    }
-}
-
-struct ListFooter: View {
-    var body: some View {
-        Text("Remember to pack plenty of water and bring sunscreen.")
-    }
-}
-
+                
 struct ExcerciseView_Previews: PreviewProvider {
     static var previews: some View {
         ExcerciseView()

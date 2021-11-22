@@ -10,23 +10,23 @@ import SwiftUI
 
 let coloredNavAppearance = UINavigationBarAppearance()
 
-struct Excercise: Identifiable {
+struct ExcerciseTest: Identifiable {
     var id = UUID()
     var name:String
 }
 
-let excercisesName:[Excercise] = [
-    Excercise(name:"Squat"),
-    Excercise(name:"Crunch"),
-    Excercise(name:"Run"),
-    Excercise(name:"Savasana"),
-    Excercise(name:"Trikonasana"),
-    Excercise(name:"Mammt"),
-    Excercise(name:"Afancul"),
+let excercisesName:[ExcerciseTest] = [
+    ExcerciseTest(name:"Squat"),
+    ExcerciseTest(name:"Crunch"),
+    ExcerciseTest(name:"Run"),
+    ExcerciseTest(name:"Savasana"),
+    ExcerciseTest(name:"Trikonasana"),
+    ExcerciseTest(name:"Mammt"),
+    ExcerciseTest(name:"Afancul"),
 ]
 
-struct RowContent: View {
-    var excercise: Excercise
+private struct RowContent: View {
+    var excercise: ExcerciseTest
     
     var body: some View {
         
