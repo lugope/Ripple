@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    let startButtonSize: CGFloat = 250
+    
     @State var selection: Int? = nil
     
     var body: some View {
@@ -17,10 +19,11 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 VStack{
+                    // Start Button
                     ZStack{
                         Circle()
-                            .strokeBorder(Color.white, lineWidth: 5)
-                            .frame(width: 200, height: 200, alignment: .center)
+                            .strokeBorder(Color.white, lineWidth: 8)
+                            .frame(width: startButtonSize+30, height: startButtonSize+30, alignment: .center)
                             .foregroundColor(.clear)
                         
                         NavigationLink(
@@ -30,17 +33,33 @@ struct ContentView: View {
                         ) {
                             Button(action: {self.selection = 1}) {
                                 Text("START")
+                                    .frame(width: startButtonSize, height: startButtonSize, alignment: .center)
                                     .foregroundColor(StandartColor.circleButtonContent.color)
                                     .background(Color.white)
                                     .clipShape(Circle())
-                                    .frame(width: 200, height: 200, alignment: .center)
-                                    .font(.system(size: 40).bold())
+                                    .font(.system(size: 48).bold())
                             }
                         }
                     }
                     
+                    //Exercise List Button
+                    NavigationLink(
+                        destination: ExcercisesListView(),
+                        tag: 2,
+                        selection: $selection
+                    ) {
+                        Button(action: {self.selection = 2}) {
+                            Text("Exercise")
+                                .frame(width: 200, height: 50, alignment: .center)
+                                .foregroundColor(Color.gray)
+                                .background(Color.white)
+                        }
+                    }
+
+                    //TODO: Sound List Button
+                    
                 }
-            }
+            }.navigationBarHidden(true)
         }
     }
 }
