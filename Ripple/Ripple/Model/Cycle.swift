@@ -16,3 +16,4 @@ struct Cycle: Identifiable {
     var endPause:Int
     var repetitions:Int
 }
+
