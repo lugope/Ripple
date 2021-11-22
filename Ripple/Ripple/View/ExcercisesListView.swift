@@ -33,8 +33,8 @@ private struct RowContent: View {
         NavigationLink(destination: ExcerciseView()) {
             Text(excercise.name)
         }
-            .listRowBackground(Color(red: 251/255, green: 251/255, blue: 253/255, opacity: 100))
-            .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
+        .listRowBackground(Color(red: 251/255, green: 251/255, blue: 253/255, opacity: 100))
+        .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
         
     }
     
@@ -57,40 +57,35 @@ struct ExcercisesListView: View {
     }
     
     var body: some View {
-
-            NavigationView {
-                
-                    List {
-                        Section(
-                            header:
-                                HStack{
-                                    Text("Your excercise")
-                                        .foregroundColor(Color(red: 94/255, green: 168/255, blue: 251/255, opacity: 100))
-                                    Spacer()
-                                    Button(action: {print("Ciao")}){
-                                        Image(systemName: "plus")
-                                    }
-                                        .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
-                                }
-                        ) {
-                            ForEach( excercisesName, id:\.id) { e in
-                                RowContent(excercise: e)
-                            }
-                        } // End Section
-                    } // End List
-                        .navigationTitle("Excercises")
-                        .navigationBarTitleDisplayMode(.inline)
-                        .toolbar {
-                            ToolbarItemGroup(placement: .navigationBarTrailing){
-                                Button("Edit") {
-                                    print("Pressed")
-                                }
-                                    .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
-                            }
-                        }
-                
-            }
         
+        List {
+            Section(
+                header:
+                    HStack{
+                        Text("Your excercise")
+                            .foregroundColor(Color(red: 94/255, green: 168/255, blue: 251/255, opacity: 100))
+                        Spacer()
+                        Button(action: {print("Ciao")}){
+                            Image(systemName: "plus")
+                        }
+                        .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
+                    }
+            ) {
+                ForEach( excercisesName, id:\.id) { e in
+                    RowContent(excercise: e)
+                }
+            } // End Section
+        } // End List
+        .navigationTitle("Excercises")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing){
+                Button("Edit") {
+                    print("Pressed")
+                }
+                .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
+            }
+        }
     }
     
 }
