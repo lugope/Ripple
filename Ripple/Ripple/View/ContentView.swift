@@ -7,7 +7,11 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    let nameButtonExercise = ["Exercise"]
+    let nameButtonSound = ["Sound"]
+    
     let startButtonSize: CGFloat = 250
     
     @State var selection: Int? = nil
@@ -43,24 +47,25 @@ struct ContentView: View {
                     }
                     
                     //Exercise List Button
-                    NavigationLink(
-                        destination: ExcercisesListView(),
-                        tag: 2,
-                        selection: $selection
-                    ) {
-                        Button(action: {self.selection = 2}) {
-                            Text("Exercise")
-                                .frame(width: 200, height: 50, alignment: .center)
-                                .foregroundColor(Color.gray)
-                                .background(Color.white)
+                    List(nameButtonExercise, id: \.self) { name in
+                        NavigationLink {
+                            ExcercisesListView()
+                        } label: {
+                            Text(name)
                         }
-                    }
-
-                    //TODO: Sound List Button
+                    }.background(Color.clear)
                     
+                    //TODO: Sound List Button
                 }
-            }.navigationBarHidden(true)
+            }
         }
+    }
+    
+    init() {
+        UINavigationBar.appearance().isHidden = true
+        UINavigationBar.appearance().tintColor = UIColor(StandartColor.interactiveTextColor.color)
+        UITableView.appearance().backgroundColor = UIColor.clear
+        UITableView.appearance().isScrollEnabled = false
     }
 }
 

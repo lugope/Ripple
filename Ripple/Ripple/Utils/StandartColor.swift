@@ -12,6 +12,8 @@ enum StandartColor: CaseIterable {
     case backgroundBlue
     case buttonWhite
     case circleButtonContent
+    case interactiveTextColor
+    case listTitleColor
     
     var color: Color {
         switch self {
@@ -21,6 +23,10 @@ enum StandartColor: CaseIterable {
             return Color.white
         case .circleButtonContent:
             return Color(hex: "01579B")
+        case .interactiveTextColor:
+            return Color(hex: "235696")
+        case .listTitleColor:
+            return Color(hex: "007AFF", opacity: 0.6)
         }
     }
 }

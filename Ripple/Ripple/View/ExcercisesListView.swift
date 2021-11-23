@@ -34,8 +34,7 @@ private struct RowContent: View {
             Text(excercise.name)
         }
         .listRowBackground(Color(red: 251/255, green: 251/255, blue: 253/255, opacity: 100))
-        .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
-        
+        .foregroundColor(StandartColor.interactiveTextColor.color)
     }
     
 }
@@ -63,7 +62,7 @@ struct ExcercisesListView: View {
                 header:
                     HStack{
                         Text("Your excercise")
-                            .foregroundColor(Color(red: 94/255, green: 168/255, blue: 251/255, opacity: 100))
+                            .foregroundColor(StandartColor.listTitleColor.color)
                         Spacer()
                         Button(action: {print("Ciao")}){
                             Image(systemName: "plus")
