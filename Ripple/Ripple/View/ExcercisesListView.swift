@@ -29,7 +29,6 @@ private struct RowContent: View {
     var excercise: ExcerciseTest
     
     var body: some View {
-        
         NavigationLink(destination: ExcerciseView()) {
             Text(excercise.name)
         }
@@ -43,7 +42,6 @@ private struct RowContent: View {
 struct ExcercisesListView: View {
     
     init() {
-        
         coloredNavAppearance.configureWithOpaqueBackground()
         coloredNavAppearance.backgroundColor = UIColor(Color(red: 236/255, green: 238/255, blue: 244/255, opacity: 100))
         coloredNavAppearance.titleTextAttributes = [.foregroundColor: UIColor(Color(red: 94/255, green: 168/255, blue: 251/255, opacity: 100))]
@@ -53,13 +51,11 @@ struct ExcercisesListView: View {
         UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
         
         UITableView.appearance().backgroundColor = UIColor(Color(red: 236/255, green: 238/255, blue: 244/255, opacity: 100))
-        
     }
     
     var body: some View {
 
             NavigationView {
-                
                     List {
                         Section(
                             header:
@@ -69,6 +65,7 @@ struct ExcercisesListView: View {
                                     Spacer()
                                     Button(action: {print("Ciao")}){
                                         Image(systemName: "plus")
+                                            .font(.system(size:20))
                                     }
                                         .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
                                 }
@@ -88,9 +85,7 @@ struct ExcercisesListView: View {
                                     .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
                             }
                         }
-                
             }
-        
     }
     
 }

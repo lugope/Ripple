@@ -12,11 +12,21 @@ struct CycleTest: Identifiable {
     
     init(){
         id = UUID()
-        name = "Cycle n°" + id.uuidString
+        name = "Cycle"
+        inhale = 0
+        exhale = 0
+        midPause = 0
+        endPause = 0
+        repetitions = 1
     }
     
     var id:UUID
     var name:String
+    var inhale:Int
+    var midPause:Int
+    var exhale:Int
+    var endPause:Int
+    var repetitions:Int
 }
 
 let cycles:[CycleTest] = [

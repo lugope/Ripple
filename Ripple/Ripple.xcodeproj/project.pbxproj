@@ -17,6 +17,7 @@
 		76D76E022742BD0A0085C294 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D76E012742BD0A0085C294 /* Preview Assets.xcassets */; };
 		76D76E09274547610085C294 /* RhythmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D76E08274547610085C294 /* RhythmView.swift */; };
 		76D76E162746C0070085C294 /* StandartColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D76E152746C0070085C294 /* StandartColor.swift */; };
+		CF0E8322274BF5D4000B640C /* CycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0E8321274BF5D4000B640C /* CycleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		76D76E012742BD0A0085C294 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		76D76E08274547610085C294 /* RhythmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmView.swift; sourceTree = "<group>"; };
 		76D76E152746C0070085C294 /* StandartColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartColor.swift; sourceTree = "<group>"; };
+		CF0E8321274BF5D4000B640C /* CycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				7601F7E4274BE26F00FAA772 /* ExcerciseView.swift */,
 				76D76DFC2742BD080085C294 /* ContentView.swift */,
 				76D76E08274547610085C294 /* RhythmView.swift */,
+				CF0E8321274BF5D4000B640C /* CycleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF0E8322274BF5D4000B640C /* CycleView.swift in Sources */,
 				7601F7E7274BE26F00FAA772 /* ExcercisesListView.swift in Sources */,
 				76D76DFD2742BD080085C294 /* ContentView.swift in Sources */,
 				76D76E09274547610085C294 /* RhythmView.swift in Sources */,
@@ -317,6 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Ripple/Preview Content\"";
+				DEVELOPMENT_TEAM = KJ8PGM2PZM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -330,7 +335,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = TheCantinaNeonWarthog.Ripple;
+				PRODUCT_BUNDLE_IDENTIFIER = TheCantinaNeonWartho.Ripple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -346,6 +351,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Ripple/Preview Content\"";
+				DEVELOPMENT_TEAM = KJ8PGM2PZM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -359,7 +365,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = TheCantinaNeonWarthog.Ripple;
+				PRODUCT_BUNDLE_IDENTIFIER = TheCantinaNeonWartho.Ripple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
