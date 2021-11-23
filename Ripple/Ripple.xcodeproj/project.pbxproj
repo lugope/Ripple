@@ -17,7 +17,8 @@
 		76D76E022742BD0A0085C294 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D76E012742BD0A0085C294 /* Preview Assets.xcassets */; };
 		76D76E09274547610085C294 /* RhythmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D76E08274547610085C294 /* RhythmView.swift */; };
 		76D76E162746C0070085C294 /* StandartColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D76E152746C0070085C294 /* StandartColor.swift */; };
-		CF0E8322274BF5D4000B640C /* CycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0E8321274BF5D4000B640C /* CycleView.swift */; };
+		9E2CE603274BF75E00C4BD62 /* SoundList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2CE602274BF75E00C4BD62 /* SoundList.swift */; };
+		9E2CE605274BF7FC00C4BD62 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2CE604274BF7FC00C4BD62 /* Sound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +33,8 @@
 		76D76E012742BD0A0085C294 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		76D76E08274547610085C294 /* RhythmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmView.swift; sourceTree = "<group>"; };
 		76D76E152746C0070085C294 /* StandartColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartColor.swift; sourceTree = "<group>"; };
-		CF0E8321274BF5D4000B640C /* CycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleView.swift; sourceTree = "<group>"; };
+		9E2CE602274BF75E00C4BD62 /* SoundList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundList.swift; sourceTree = "<group>"; };
+		9E2CE604274BF7FC00C4BD62 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +92,7 @@
 				7601F7E4274BE26F00FAA772 /* ExcerciseView.swift */,
 				76D76DFC2742BD080085C294 /* ContentView.swift */,
 				76D76E08274547610085C294 /* RhythmView.swift */,
-				CF0E8321274BF5D4000B640C /* CycleView.swift */,
+				9E2CE602274BF75E00C4BD62 /* SoundList.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -100,6 +102,7 @@
 			children = (
 				7601F7E1274BE23800FAA772 /* Cycle.swift */,
 				7601F7E0274BE23800FAA772 /* Excercise.swift */,
+				9E2CE604274BF7FC00C4BD62 /* Sound.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,9 +187,11 @@
 			files = (
 				CF0E8322274BF5D4000B640C /* CycleView.swift in Sources */,
 				7601F7E7274BE26F00FAA772 /* ExcercisesListView.swift in Sources */,
+				9E2CE603274BF75E00C4BD62 /* SoundList.swift in Sources */,
 				76D76DFD2742BD080085C294 /* ContentView.swift in Sources */,
 				76D76E09274547610085C294 /* RhythmView.swift in Sources */,
 				7601F7E3274BE23800FAA772 /* Cycle.swift in Sources */,
+				9E2CE605274BF7FC00C4BD62 /* Sound.swift in Sources */,
 				7601F7E6274BE26F00FAA772 /* ExcerciseView.swift in Sources */,
 				76D76DFB2742BD080085C294 /* RippleApp.swift in Sources */,
 				7601F7E2274BE23800FAA772 /* Excercise.swift in Sources */,

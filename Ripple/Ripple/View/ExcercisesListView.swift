@@ -32,9 +32,8 @@ private struct RowContent: View {
         NavigationLink(destination: ExcerciseView()) {
             Text(excercise.name)
         }
-            .listRowBackground(Color(red: 251/255, green: 251/255, blue: 253/255, opacity: 100))
-            .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
-        
+        .listRowBackground(Color(red: 251/255, green: 251/255, blue: 253/255, opacity: 100))
+        .foregroundColor(StandartColor.interactiveTextColor.color)
     }
     
 }
@@ -56,6 +55,7 @@ struct ExcercisesListView: View {
     var body: some View {
 
             NavigationView {
+                
                     List {
                         Section(
                             header:
@@ -65,7 +65,6 @@ struct ExcercisesListView: View {
                                     Spacer()
                                     Button(action: {print("Ciao")}){
                                         Image(systemName: "plus")
-                                            .font(.system(size:20))
                                     }
                                         .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
                                 }
@@ -85,7 +84,9 @@ struct ExcercisesListView: View {
                                     .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
                             }
                         }
+                
             }
+        
     }
     
 }
