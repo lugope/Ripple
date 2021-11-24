@@ -26,7 +26,7 @@ struct RhythmView: View {
     @State private var animationScaleCircle3 = 1.0
     @State private var animationColor = Color.white
     //Timer
-    @State var secCounting: Double = 0
+    @State var secCounting: Double = 5
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     //Control var
@@ -46,6 +46,9 @@ struct RhythmView: View {
             VStack{
                 Text("\(currentExercise.exercise.name)")
                 Text("\(message[currentStage])")
+                    .foregroundColor(StandartColor.listBackgroundColor.color)
+                    .font(.system(size: 42).bold())
+                    .padding()
                 
                 //Rhythm animation
                 ZStack{
@@ -86,63 +89,65 @@ struct RhythmView: View {
                         )
                     
                     //Animation mechanics
-                    Text(String(format: "%g", secCounting)).onReceive(timer) { _ in
-                        secCounting += 1
-                        
-                        if shouldRhythmAnimRun {
-                            if (secCounting >= rhythmConfig[currentStage]) || isFirstAnimation {
-                                secCounting = 0
-                                
-                                // Define de stage of the animation
-                                // and the duration for the current state
-                                if isFirstAnimation {
-                                    stageCount = 0
-                                    isFirstAnimation = false
-                                } else {
-                                    stageCount += 1
-                                }
-                                currentStage = stageCount % 4
-                                animationDuration = rhythmConfig[currentStage]
-                                
-                                // Set new values to animate
-                                switch currentStage {
-                                case RhythmStage.In.rawValue:
-                                    animationColor = Color.blue
-                                    animationScaleCircle1 = 2.59
-                                    animationScaleCircle2 = 4.7
-                                    animationScaleCircle3 = 7.5
-                                    
-                                    delayCircle1 = 0
-                                    delayCircle2 = 0.5
-                                    delayCircle3 = 1
-                                    
-                                case RhythmStage.InPause.rawValue:
-                                    animationColor = StandartColor.listDetailColor.color
-                                    
-                                case RhythmStage.Out.rawValue:
-                                    animationColor = StandartColor.contrastRed.color
-                                    animationScaleCircle1 = 1
-                                    animationScaleCircle2 = 1
-                                    animationScaleCircle3 = 1
-                                    
-                                    delayCircle1 = 1
-                                    delayCircle2 = 0.5
-                                    delayCircle3 = 0
-                                    
-                                case RhythmStage.OutPause.rawValue:
-                                    animationColor = StandartColor.listDetailColor.color
-                                    
-                                default:
-                                    animationColor = Color.black
-                                }
-                            }
+                    Text(String(format: "%g", secCounting))
+                        .font(.system(size: 30).bold())
+                        .onReceive(timer) { _ in
+                            secCounting -= 1
                             
-                        } else {
-                            if secCounting >= 1 {
-                                shouldRhythmAnimRun = true
+                            if shouldRhythmAnimRun {
+                                if (secCounting <= 0) || isFirstAnimation {
+                                    // Define de stage of the animation
+                                    // and the duration for the current state
+                                    if isFirstAnimation {
+                                        stageCount = 0
+                                        isFirstAnimation = false
+                                    } else {
+                                        stageCount += 1
+                                    }
+                                    currentStage = stageCount % 4
+                                    
+                                    secCounting = rhythmConfig[currentStage]
+                                    animationDuration = rhythmConfig[currentStage]
+                                    
+                                    // Set new values to animate
+                                    switch currentStage {
+                                    case RhythmStage.In.rawValue:
+                                        animationColor = Color.blue
+                                        animationScaleCircle1 = 2.59
+                                        animationScaleCircle2 = 4.7
+                                        animationScaleCircle3 = 7.5
+                                        
+                                        delayCircle1 = 0
+                                        delayCircle2 = 0.5
+                                        delayCircle3 = 1
+                                        
+                                    case RhythmStage.InPause.rawValue:
+                                        animationColor = StandartColor.listDetailColor.color
+                                        
+                                    case RhythmStage.Out.rawValue:
+                                        animationColor = StandartColor.contrastRed.color
+                                        animationScaleCircle1 = 1
+                                        animationScaleCircle2 = 1
+                                        animationScaleCircle3 = 1
+                                        
+                                        delayCircle1 = 1
+                                        delayCircle2 = 0.5
+                                        delayCircle3 = 0
+                                        
+                                    case RhythmStage.OutPause.rawValue:
+                                        animationColor = StandartColor.listDetailColor.color
+                                        
+                                    default:
+                                        animationColor = Color.black
+                                    }
+                                }
+                                
+                            } else {
+                                if secCounting <= 0 {
+                                    shouldRhythmAnimRun = true
+                                }
                             }
                         }
-                    }
                     
                     // Boarder Lines
                     Circle().strokeBorder(Color.white, lineWidth: 1)
