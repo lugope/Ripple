@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct ContentView: View {
+    
     let nameButtonExercise = ["Exercise"]
     let nameButtonSound = ["Sound"]
     
@@ -22,7 +23,7 @@ struct ContentView: View {
                 StandartColor.backgroundBlue.color
                     .ignoresSafeArea()
                 
-                VStack{
+                VStack(){
                     // Start Button
                     ZStack{
                         Circle()
@@ -38,34 +39,53 @@ struct ContentView: View {
                             Button(action: {self.selection = 1}) {
                                 Text("START")
                                     .frame(width: startButtonSize, height: startButtonSize, alignment: .center)
-                                    .foregroundColor(StandartColor.circleButtonContent.color)
+                                    .foregroundColor(StandartColor.interactiveTextColor.color)
                                     .background(Color.white)
                                     .clipShape(Circle())
                                     .font(.system(size: 48).bold())
                             }
                         }
                     }
+                    .padding(.bottom, 120)
+                    .padding(.top, 200)
                     
-                    //Exercise List Button
-                    List(nameButtonExercise, id: \.self) { name in
-                        NavigationLink {
-                            ExcercisesListView()
-                        } label: {
-                            Text(name)
+                    // Exercise Button
+                    NavigationLink(
+                        destination: ExcercisesListView(),
+                        tag: 2,
+                        selection: $selection
+                    ) {
+                        Button(action: {self.selection = 2}) {
+                            Text("Exercises").foregroundColor(StandartColor.interactiveTextColor.color).padding()
+                            Spacer()
+                            Text("Place Holder").foregroundColor(StandartColor.listDetailColor.color)
+                            Image(uiImage: UIImage(named: "ArrowRight")!).padding(.trailing)
                         }
-                    }.background(Color.clear)
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .padding(.leading)
+                        .padding(.trailing)
+                    }.navigationBarHidden(true)
                     
-                    //TODO: Sound List Button
+                    //TODO: Sound Button
+                    NavigationLink(
+                        destination: ExcercisesListView(),
+                        tag: 3,
+                        selection: $selection
+                    ) {
+                        Button(action: {}) {
+                            Text("Sound").foregroundColor(StandartColor.interactiveTextColor.color).padding()
+                            Spacer()
+                            Text("Place Holder").foregroundColor(StandartColor.listDetailColor.color)
+                            Image(uiImage: UIImage(named: "ArrowRight")!).padding(.trailing)
+                        }
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .padding(.leading)
+                        .padding(.trailing)}
                 }
             }
         }
-    }
-    
-    init() {
-        UINavigationBar.appearance().isHidden = true
-        UINavigationBar.appearance().tintColor = UIColor(StandartColor.interactiveTextColor.color)
-        UITableView.appearance().backgroundColor = UIColor.clear
-        UITableView.appearance().isScrollEnabled = false
     }
 }
 
