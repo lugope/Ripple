@@ -9,13 +9,12 @@ import SwiftUI
 
 
 struct ContentView: View {
+    @State var selection: Int? = nil
+    @EnvironmentObject var currentExercise: CurrentExercise
     
     let nameButtonExercise = ["Exercise"]
     let nameButtonSound = ["Sound"]
-    
     let startButtonSize: CGFloat = 250
-    
-    @State var selection: Int? = nil
     
     var body: some View {
         NavigationView {
@@ -32,7 +31,7 @@ struct ContentView: View {
                             .foregroundColor(.clear)
                         
                         NavigationLink(
-                            destination: RhythmView(),
+                            destination: RhythmView().environmentObject(currentExercise),
                             tag: 1,
                             selection: $selection
                         ) {
@@ -58,7 +57,7 @@ struct ContentView: View {
                         Button(action: {self.selection = 2}) {
                             Text("Exercises").foregroundColor(StandartColor.interactiveTextColor.color).padding()
                             Spacer()
-                            Text("Place Holder").foregroundColor(StandartColor.listDetailColor.color)
+                            Text(currentExercise.exercise.name).foregroundColor(StandartColor.listDetailColor.color)
                             Image(uiImage: UIImage(named: "ArrowRight")!).padding(.trailing)
                         }
                         .background(Color.white)
@@ -76,7 +75,7 @@ struct ContentView: View {
                         Button(action: {}) {
                             Text("Sound").foregroundColor(StandartColor.interactiveTextColor.color).padding()
                             Spacer()
-                            Text("Place Holder").foregroundColor(StandartColor.listDetailColor.color)
+                            Text(currentExercise.sound.name).foregroundColor(StandartColor.listDetailColor.color)
                             Image(uiImage: UIImage(named: "ArrowRight")!).padding(.trailing)
                         }
                         .background(Color.white)

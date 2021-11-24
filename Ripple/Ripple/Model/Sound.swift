@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct sound: Identifiable {
+struct Sound: Identifiable {
     var id = UUID()
     var name:String
 }
