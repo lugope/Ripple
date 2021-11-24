@@ -49,7 +49,7 @@ struct ExcercisesListView: View {
         UINavigationBar.appearance().standardAppearance = coloredNavAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
         
-        UITableView.appearance().backgroundColor = UIColor(Color(red: 236/255, green: 238/255, blue: 244/255, opacity: 100))
+        UITableView.appearance().backgroundColor = UIColor(StandartColor.listBackgroundColor.color)
     }
     
     var body: some View {

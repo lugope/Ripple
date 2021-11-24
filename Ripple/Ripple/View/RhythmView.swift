@@ -17,11 +17,13 @@ struct RhythmView: View {
     
     //Rhythm configuration
     // TODO: adapt the code to read the definer Rhythm Model
-    let rhythmConfig: [Double] = [5.0, 4.0, 3.0, 2.0, 0.0]
+    let rhythmConfig: [Double] = [4.0, 2.0, 4.0, 2.0, 0.0]
     let message: [String] = ["In", "Pause (In)", "Out", "Pause (Out)", "Be ready"]
     
     // Animation states
-    @State private var animationSize = 1.0
+    @State private var animationScaleCircle1 = 1.0
+    @State private var animationScaleCircle2 = 1.0
+    @State private var animationScaleCircle3 = 1.0
     @State private var animationColor = Color.white
     //Timer
     @State var secCounting: Double = 0
@@ -33,6 +35,9 @@ struct RhythmView: View {
     @State private var animationDuration: Double = 0
     @State private var shouldRhythmAnimRun: Bool = false
     @State private var isFirstAnimation: Bool = true
+    @State private var delayCircle1: Double = 0
+    @State private var delayCircle2: Double = 1
+    @State private var delayCircle3: Double = 2
     
     var body: some View {
         ZStack{
@@ -45,18 +50,43 @@ struct RhythmView: View {
                 //Rhythm animation
                 ZStack{
                     StandartColor.backgroundBlue.color.ignoresSafeArea()
-                    //Rhythm animation
-                    Circle()
+                    //Animation elements
+                    Circle() //1
                         .foregroundColor(Color.white)
-                        .frame(width: 200, height: 200, alignment: .center)
+                        .frame(width: 123.45, height: 123.45, alignment: .center)
                         .colorMultiply(animationColor)
-                        .scaleEffect(animationSize)
-                        .animation(.easeInOut(duration: animationDuration), value: animationSize)
+                        .scaleEffect(animationScaleCircle1)
                         .animation(
-                            .easeIn(duration: 1) ,value: animationColor
+                            .easeInOut(duration: animationDuration - delayCircle1).delay(delayCircle1),
+                            value: animationScaleCircle1
+                        )
+                        .animation(
+                            .easeIn(duration: 0.3),
+                            value: animationColor
                         )
                     
-                    Text("\(secCounting)").onReceive(timer) { _ in
+                    Circle() //2
+                        .foregroundColor(Color.white)
+                        .opacity(0.5)
+                        .frame(width: 61.72, height: 61.72, alignment: .center)
+                        .scaleEffect(animationScaleCircle2)
+                        .animation(
+                            .easeInOut(duration: animationDuration - delayCircle2).delay(delayCircle2),
+                            value: animationScaleCircle2
+                        )
+                    
+                    Circle() //3
+                        .foregroundColor(Color.white)
+                        .opacity(0.5)
+                        .frame(width: 30.86, height: 30.86, alignment: .center)
+                        .scaleEffect(animationScaleCircle3)
+                        .animation(
+                            .easeInOut(duration: animationDuration - delayCircle3).delay(delayCircle3),
+                            value: animationScaleCircle3
+                        )
+                    
+                    //Animation mechanics
+                    Text(String(format: "%g", secCounting)).onReceive(timer) { _ in
                         secCounting += 1
                         
                         if shouldRhythmAnimRun {
@@ -78,17 +108,29 @@ struct RhythmView: View {
                                 switch currentStage {
                                 case RhythmStage.In.rawValue:
                                     animationColor = Color.blue
-                                    animationSize = 1.61
+                                    animationScaleCircle1 = 2.59
+                                    animationScaleCircle2 = 4.7
+                                    animationScaleCircle3 = 7.5
+                                    
+                                    delayCircle1 = 0
+                                    delayCircle2 = 0.5
+                                    delayCircle3 = 1
                                     
                                 case RhythmStage.InPause.rawValue:
-                                    animationColor = Color.gray
+                                    animationColor = StandartColor.listDetailColor.color
                                     
                                 case RhythmStage.Out.rawValue:
-                                    animationColor = Color.red
-                                    animationSize = 0.5
+                                    animationColor = StandartColor.contrastRed.color
+                                    animationScaleCircle1 = 1
+                                    animationScaleCircle2 = 1
+                                    animationScaleCircle3 = 1
+                                    
+                                    delayCircle1 = 1
+                                    delayCircle2 = 0.5
+                                    delayCircle3 = 0
                                     
                                 case RhythmStage.OutPause.rawValue:
-                                    animationColor = Color.gray
+                                    animationColor = StandartColor.listDetailColor.color
                                     
                                 default:
                                     animationColor = Color.black
@@ -96,7 +138,7 @@ struct RhythmView: View {
                             }
                             
                         } else {
-                            if secCounting >= 5 {
+                            if secCounting >= 1 {
                                 shouldRhythmAnimRun = true
                             }
                         }
@@ -104,9 +146,9 @@ struct RhythmView: View {
                     
                     // Boarder Lines
                     Circle().strokeBorder(Color.white, lineWidth: 1)
-                        .frame(width: 300, height: 300, alignment: .center)
+                        .frame(width: 320, height: 320, alignment: .center)
                     Circle().strokeBorder(Color.white, lineWidth: 1)
-                        .frame(width:100, height: 100, alignment: .center)
+                        .frame(width:123.45, height: 123.45, alignment: .center)
                 }
                 
                 Spacer()
