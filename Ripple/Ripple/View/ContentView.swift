@@ -68,11 +68,11 @@ struct ContentView: View {
                     
                     //TODO: Sound Button
                     NavigationLink(
-                        destination: ExcercisesListView(),
+                        destination: SoundListView().environmentObject(currentExercise),
                         tag: 3,
                         selection: $selection
                     ) {
-                        Button(action: {}) {
+                        Button(action: {self.selection = 3}) {
                             Text("Sound").foregroundColor(StandartColor.interactiveTextColor.color).padding()
                             Spacer()
                             Text(currentExercise.sound.name).foregroundColor(StandartColor.listDetailColor.color)

@@ -15,10 +15,9 @@ struct SoundTest: Identifiable {
 }
 
 let soundName:[SoundTest] = [
+    SoundTest(name:"Bell"),
     SoundTest(name:"Waves"),
-    SoundTest(name:"Wind"),
-    SoundTest(name:"Bruh Sound Effect #2"),
-    SoundTest(name:"Vuoi Farla Ingelosirla?")
+    SoundTest(name:"Wind")
 ]
 
 private struct RowContent: View {
@@ -40,9 +39,9 @@ private struct RowContent: View {
 }
 
 struct SoundListView: View {
+    @EnvironmentObject var currentExercise: CurrentExercise
     
     init() {
-        
         coloredNavAppearance.configureWithOpaqueBackground()
         coloredNavAppearance.backgroundColor = UIColor(Color(red: 236/255, green: 238/255, blue: 244/255, opacity: 100))
         coloredNavAppearance.titleTextAttributes = [.foregroundColor: UIColor(Color(red: 94/255, green: 168/255, blue: 251/255, opacity: 100))]
@@ -52,12 +51,9 @@ struct SoundListView: View {
         UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
         
         UITableView.appearance().backgroundColor = UIColor(Color(red: 236/255, green: 238/255, blue: 244/255, opacity: 100))
-        
     }
     
     var body: some View {
-                
-        
         List {
             Section(
                 header:

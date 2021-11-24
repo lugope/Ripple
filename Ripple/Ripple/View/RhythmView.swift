@@ -14,11 +14,12 @@ enum RhythmStage: Int {
 
 struct RhythmView: View {
     @EnvironmentObject var currentExercise: CurrentExercise
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     //Rhythm configuration
     // TODO: adapt the code to read the definer Rhythm Model
     let rhythmConfig: [Double] = [4.0, 2.0, 4.0, 2.0, 0.0]
-    let message: [String] = ["In", "Pause (In)", "Out", "Pause (Out)", "Be ready"]
+    let message: [String] = ["In", "Pause", "Out", "Pause", "Be ready"]
     
     // Animation states
     @State private var animationScaleCircle1 = 1.0
@@ -45,10 +46,13 @@ struct RhythmView: View {
             
             VStack{
                 Text("\(currentExercise.exercise.name)")
+                    .foregroundColor(StandartColor.listBackgroundColor.color)
+                    .font(.system(size: 20).bold())
+                    .padding(.top, 12)
                 Text("\(message[currentStage])")
                     .foregroundColor(StandartColor.listBackgroundColor.color)
                     .font(.system(size: 42).bold())
-                    .padding()
+                    .padding(.top, 36)
                 
                 //Rhythm animation
                 ZStack{
@@ -90,6 +94,7 @@ struct RhythmView: View {
                     
                     //Animation mechanics
                     Text(String(format: "%g", secCounting))
+                        .foregroundColor(StandartColor.timerColor.color)
                         .font(.system(size: 30).bold())
                         .onReceive(timer) { _ in
                             secCounting -= 1
@@ -154,7 +159,24 @@ struct RhythmView: View {
                         .frame(width: 320, height: 320, alignment: .center)
                     Circle().strokeBorder(Color.white, lineWidth: 1)
                         .frame(width:123.45, height: 123.45, alignment: .center)
-                }
+                }.padding()
+                
+                //Back button
+                ZStack {
+                    Circle()
+                        .strokeBorder(Color.white, lineWidth: 4)
+                        .frame(width: 123.45, height: 123.45, alignment: .center)
+                        .foregroundColor(.clear)
+                    
+                    Button(action: {presentationMode.wrappedValue.dismiss()}) {
+                        Text("STOP").background(Color.white)
+                            .frame(width: 100, height: 100, alignment: .center)
+                            .foregroundColor(StandartColor.interactiveTextColor.color)
+                            .background(Color.white)
+                            .clipShape(Circle())
+                            .font(.system(size: 30).bold())
+                        }
+                }.padding(.bottom, 50)
                 
                 Spacer()
             }.navigationBarHidden(true)

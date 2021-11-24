@@ -10,9 +10,9 @@ import SwiftUI
 @main
 struct RippleApp: App {
     @StateObject var currentExercise = CurrentExercise(
-        exercise: Excercise(name: "Exercise Place Holder",
+        exercise: Excercise(name: "Savasana",
                             cycles: [Cycle(inhale: 1, midPause: 1, exhale: 1, endPause: 1, repetitions: 1)]),
-        sound: Sound(name: "Sound Place Holder")
+        sound: Sound(name: "Bell")
     )
     
     var body: some Scene {
