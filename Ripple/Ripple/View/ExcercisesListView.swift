@@ -13,32 +13,34 @@ let coloredNavAppearance = UINavigationBarAppearance()
 struct ExcerciseTest: Identifiable {
     var id = UUID()
     var name:String
+    var image:Image
 }
 
 let excercisesName:[ExcerciseTest] = [
-    ExcerciseTest(name:"Squat"),
-    ExcerciseTest(name:"Crunch"),
-    ExcerciseTest(name:"Run"),
-    ExcerciseTest(name:"Savasana"),
-    ExcerciseTest(name:"Trikonasana"),
-    ExcerciseTest(name:"Mammt"),
-    ExcerciseTest(name:"Afancul"),
+    ExcerciseTest(name:"Savasana", image: Image(systemName: "checkmark")),
+    ExcerciseTest(name:"Crunch", image: Image("")),
+    ExcerciseTest(name:"Run", image: Image("")),
+    ExcerciseTest(name:"Squat", image: Image("")),
+    ExcerciseTest(name:"Trikonasana", image: Image(""))
 ]
+
+
 
 private struct RowContent: View {
     var excercise: ExcerciseTest
     
     var body: some View {
-        NavigationLink(destination: ExcerciseView()) {
-            Text(excercise.name)
+        HStack{
+            Text(excercise.name).foregroundColor(StandartColor.interactiveTextColor.color)
+            Spacer()
+            excercise.image.foregroundColor(Color.blue)
         }
-        .listRowBackground(Color(red: 251/255, green: 251/255, blue: 253/255, opacity: 100))
-        .foregroundColor(StandartColor.interactiveTextColor.color)
     }
     
 }
 
 struct ExcercisesListView: View {
+    @State var selectionNav: Int? = nil
     
     init() {
         coloredNavAppearance.configureWithOpaqueBackground()
@@ -60,10 +62,18 @@ struct ExcercisesListView: View {
                         Text("Your excercise")
                             .foregroundColor(Color(red: 94/255, green: 168/255, blue: 251/255, opacity: 100))
                         Spacer()
-                        Button(action: {print("Ciao")}){
-                            Image(systemName: "plus")
+                        
+                        NavigationLink(
+                            destination: ExcerciseView(),
+                            tag: 1,
+                            selection: $selectionNav
+                        ) {
+                            Button(action: {selectionNav = 1}){
+                                Image(systemName: "plus")
+                                
+                            }
+                            .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
                         }
-                        .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
                     }
             ) {
                 ForEach( excercisesName, id:\.id) { e in

@@ -13,6 +13,7 @@
 		7601F7E7274BE26F00FAA772 /* ExcercisesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7601F7E5274BE26F00FAA772 /* ExcercisesListView.swift */; };
 		768A2596274DBFCC008BD7E9 /* CurrentExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A2595274DBFCC008BD7E9 /* CurrentExercise.swift */; };
 		768A2598274E68E6008BD7E9 /* BundleDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A2597274E68E6008BD7E9 /* BundleDecodable.swift */; };
+		768A259A274FB6B0008BD7E9 /* CycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A2599274FB6B0008BD7E9 /* CycleView.swift */; };
 		76D76DFB2742BD080085C294 /* RippleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D76DFA2742BD080085C294 /* RippleApp.swift */; };
 		76D76DFD2742BD080085C294 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D76DFC2742BD080085C294 /* ContentView.swift */; };
 		76D76DFF2742BD0A0085C294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D76DFE2742BD0A0085C294 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		7601F7E5274BE26F00FAA772 /* ExcercisesListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcercisesListView.swift; sourceTree = "<group>"; };
 		768A2595274DBFCC008BD7E9 /* CurrentExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentExercise.swift; sourceTree = "<group>"; };
 		768A2597274E68E6008BD7E9 /* BundleDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleDecodable.swift; sourceTree = "<group>"; };
+		768A2599274FB6B0008BD7E9 /* CycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleView.swift; sourceTree = "<group>"; };
 		76D76DF72742BD080085C294 /* Ripple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ripple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D76DFA2742BD080085C294 /* RippleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleApp.swift; sourceTree = "<group>"; };
 		76D76DFC2742BD080085C294 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		76D76E0C274547E00085C294 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				768A2599274FB6B0008BD7E9 /* CycleView.swift */,
 				7601F7E5274BE26F00FAA772 /* ExcercisesListView.swift */,
 				7601F7E4274BE26F00FAA772 /* ExcerciseView.swift */,
 				76D76DFC2742BD080085C294 /* ContentView.swift */,
@@ -199,6 +202,7 @@
 				768A2596274DBFCC008BD7E9 /* CurrentExercise.swift in Sources */,
 				9E2CE605274BF7FC00C4BD62 /* Sound.swift in Sources */,
 				7601F7E6274BE26F00FAA772 /* ExcerciseView.swift in Sources */,
+				768A259A274FB6B0008BD7E9 /* CycleView.swift in Sources */,
 				76D76DFB2742BD080085C294 /* RippleApp.swift in Sources */,
 				768A2598274E68E6008BD7E9 /* BundleDecodable.swift in Sources */,
 				7601F7E2274BE23800FAA772 /* Excercise.swift in Sources */,

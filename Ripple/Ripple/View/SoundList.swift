@@ -12,28 +12,24 @@ import SwiftUI
 struct SoundTest: Identifiable {
     var id = UUID()
     var name:String
+    var image:Image
 }
 
 let soundName:[SoundTest] = [
-    SoundTest(name:"Bell"),
-    SoundTest(name:"Waves"),
-    SoundTest(name:"Wind")
+    SoundTest(name:"Bell", image: Image(systemName: "checkmark")),
+    SoundTest(name:"Waves", image: Image("")),
+    SoundTest(name:"Wind", image: Image(""))
 ]
 
 private struct RowContent: View {
     var sound: SoundTest
     
     var body: some View {
-        Button(action: {}) {
-                HStack{
-                Text(sound.name)
-                Spacer()
-                Image(systemName: "checkmark")
-            }
+        HStack{
+            Text(sound.name).foregroundColor(StandartColor.interactiveTextColor.color)
+            Spacer()
+            sound.image.foregroundColor(Color.blue)
         }
-            .listRowBackground(Color(red: 251/255, green: 251/255, blue: 253/255, opacity: 100))
-            .foregroundColor(Color(red: 35/255, green: 86/255, blue: 150/255, opacity: 100))
-        
     }
     
 }
