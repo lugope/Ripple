@@ -63,7 +63,7 @@ private struct RowContent: View {
     
     var body: some View {
         
-        NavigationLink(destination: ExcerciseView()) {
+        NavigationLink(destination: CycleView()) {
             Text(cycle.name)
         }
         .listRowBackground(Color(red: 251/255, green: 251/255, blue: 253/255, opacity: 100))
@@ -115,7 +115,7 @@ struct ExcerciseView: View {
                         }
                 ){
                     ForEach(cycles, id: \.id) { c in
-                        NavigationLink(c.name, destination: ExcercisesListView())
+                        NavigationLink(c.name, destination: CycleView())
                     }
                 }
             }.listStyle(InsetGroupedListStyle())

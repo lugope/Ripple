@@ -6,10 +6,26 @@
 //
 
 import Foundation
+import AVFoundation
 import SwiftUI
 
 enum RhythmStage: Int {
     case In, InPause, Out, OutPause
+}
+
+//Audio player
+var player: AVAudioPlayer?
+
+func playSound() {
+    guard let path = Bundle.main.path(forResource: "Bell", ofType:"mp3") else {return}
+    let url = URL(fileURLWithPath: path)
+    
+    do {
+        player = try AVAudioPlayer(contentsOf: url)
+        player?.play()
+    } catch {
+        print("// couldn't load file :(")
+    }
 }
 
 struct RhythmView: View {
@@ -26,6 +42,7 @@ struct RhythmView: View {
     @State private var animationScaleCircle2 = 1.0
     @State private var animationScaleCircle3 = 1.0
     @State private var animationColor = Color.white
+    
     //Timer
     @State var secCounting: Double = 5
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -99,8 +116,12 @@ struct RhythmView: View {
                         .onReceive(timer) { _ in
                             secCounting -= 1
                             
+                            
                             if shouldRhythmAnimRun {
                                 if (secCounting <= 0) || isFirstAnimation {
+                                    //Play sound
+                                    playSound()
+                                    
                                     // Define de stage of the animation
                                     // and the duration for the current state
                                     if isFirstAnimation {
@@ -175,7 +196,7 @@ struct RhythmView: View {
                             .background(Color.white)
                             .clipShape(Circle())
                             .font(.system(size: 30).bold())
-                        }
+                    }
                 }.padding(.bottom, 50)
                 
                 Spacer()

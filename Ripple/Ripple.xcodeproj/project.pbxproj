@@ -14,6 +14,7 @@
 		768A2596274DBFCC008BD7E9 /* CurrentExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A2595274DBFCC008BD7E9 /* CurrentExercise.swift */; };
 		768A2598274E68E6008BD7E9 /* BundleDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A2597274E68E6008BD7E9 /* BundleDecodable.swift */; };
 		768A259A274FB6B0008BD7E9 /* CycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A2599274FB6B0008BD7E9 /* CycleView.swift */; };
+		768A259D274FCCD7008BD7E9 /* Bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 768A259C274FCCD7008BD7E9 /* Bell.mp3 */; };
 		76D76DFB2742BD080085C294 /* RippleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D76DFA2742BD080085C294 /* RippleApp.swift */; };
 		76D76DFD2742BD080085C294 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D76DFC2742BD080085C294 /* ContentView.swift */; };
 		76D76DFF2742BD0A0085C294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D76DFE2742BD0A0085C294 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		768A2595274DBFCC008BD7E9 /* CurrentExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentExercise.swift; sourceTree = "<group>"; };
 		768A2597274E68E6008BD7E9 /* BundleDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleDecodable.swift; sourceTree = "<group>"; };
 		768A2599274FB6B0008BD7E9 /* CycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleView.swift; sourceTree = "<group>"; };
+		768A259C274FCCD7008BD7E9 /* Bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Bell.mp3; path = ../../../../../../Downloads/Bell.mp3; sourceTree = "<group>"; };
 		76D76DF72742BD080085C294 /* Ripple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ripple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D76DFA2742BD080085C294 /* RippleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleApp.swift; sourceTree = "<group>"; };
 		76D76DFC2742BD080085C294 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		76D76DF92742BD080085C294 /* Ripple */ = {
 			isa = PBXGroup;
 			children = (
+				768A259C274FCCD7008BD7E9 /* Bell.mp3 */,
 				76D76E122746B5F50085C294 /* Utils */,
 				76D76E0D274547E80085C294 /* Model */,
 				76D76E0C274547E00085C294 /* View */,
@@ -182,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				768A259D274FCCD7008BD7E9 /* Bell.mp3 in Resources */,
 				76D76E022742BD0A0085C294 /* Preview Assets.xcassets in Resources */,
 				76D76DFF2742BD0A0085C294 /* Assets.xcassets in Resources */,
 			);
