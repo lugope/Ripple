@@ -18,7 +18,7 @@ struct RhythmView: View {
     
     //Rhythm configuration
     // TODO: adapt the code to read the definer Rhythm Model
-    let rhythmConfig: [Double] = [4.0, 2.0, 4.0, 2.0, 0.0]
+    let rhythmConfig: [Double] = [4.0, 4.0, 4.0, 4.0, 0.0]
     let message: [String] = ["In", "Pause", "Out", "Pause", "Be ready"]
     
     // Animation states
