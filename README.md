@@ -1,2 +1,2 @@
 # Ripple
-ADA Mini Challenge 1
+App to follow a rhithm during meditation and exercises
